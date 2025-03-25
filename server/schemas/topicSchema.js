@@ -1,5 +1,6 @@
 import mongoose, { model } from "mongoose";
 import subCatSchema from "./subCatSchema.js";
+import thanksSchema from "./thanksSchema.js";
 
 const topicSchema = new mongoose.Schema({
   title: { type: String },
@@ -9,12 +10,7 @@ const topicSchema = new mongoose.Schema({
   magnetLink: { type: String },
   size: { type: String },
   torrentLink: { type: String },
-  thanks: [
-    {
-      username: String,
-      date: String,
-    },
-  ],
+  thanks: { type: [thanksSchema.schema] },
 });
 
 export default model("topicSchema", topicSchema);
